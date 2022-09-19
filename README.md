@@ -19,11 +19,20 @@ All the installations steps have been performed on a Mac.
 
 ## Prerequistes 
 
-Github Account 
+Github Account
+Install helm
+Install Minikube
+Install Jenkins 
+
+## Intallation Minikube
+Instructions can be founde here, 
+https://helm.sh/docs/intro/install/
 
 ## Intallation Minikube
 
 Let's install Minikube first, the installation instructions can be found here, https://minikube.sigs.k8s.io/docs/start/
+
+After helm is installed
 
 ## Installation Argocd
 
@@ -38,7 +47,22 @@ port-forward to pod to get localhost UI access
 kubectl port-forward argocd-server-76cf7d4c7b-rv8gz  8080:8080 -n argocd
 
 
-
 ## Installation Jenkins
 
+Now lets install Jenkins onto our minikube cluster, 
 
+Steps: 
+kubectl create namespace jenkins
+kubectl get namespaces ( you should see jenkins)
+helm repo add jenkinsci https://charts.jenkins.io
+helm repo update
+kubectl apply -f jenkins-volume.yaml
+minikube ssh
+sudo chown -R 1000:1000 /data/jenkins-volume (***)
+kubectl apply -f jenkins-sa.yaml
+
+
+
+## Demo setup 
+
+Clone this repo into your own repo
