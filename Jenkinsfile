@@ -20,7 +20,7 @@ node(POD_LABEL) {
      ]
 
      buildEnvs = [
-       "ECR_IMAGE_NAME=demo-image",
+       "ECR_IMAGE_NAME=demo-imagfe",
        "ARGOCD_SERVER=10.107.116.128",
        "COMMIT_HASH=${GIT_HASH}",
        "ENVIRONMENT=dev"
