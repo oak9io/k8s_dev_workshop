@@ -9,7 +9,7 @@ Deploying to K8's Using Argocd and Jenkins
 * [Installation Argocd](#Getting-Started-ArgoCD)
 * [Installation Jenkins](#Getting-Started-Jenkins)
 * [Configuring Ngrok](#Configuring-ngrok)
-* [Running Pipleine](#Blast-Off)
+* [Running Pipelne](#Blast-Off)
 
 ## Introduction 
 
@@ -112,9 +112,22 @@ Run ngrok to create a reverse proxy
 ./ngrok http 8000
 ```
 
-
 configure you jenkins to send a webhook to your jenkins box for your repo, https://www.blazemeter.com/blog/how-to-integrate-your-github-repository-to-your-jenkins-project
 
+note your url will look something like this, dont forget trailing slash !!! 
+https://*****-****-***.ngrok.io/github-webhook/  
+
+configure Jenkins to have access to your github repo
+
+```
+Create a deploy key for your repo, https://docs.github.com/en/developers/overview/managing-deploy-keys#deploy-keys
+
+
+```
+
+##Configure Argocd
+
+1. create a project that we can link our jenkins pipeline to and push images that will get pushed to kubernetes 
 
 
 ## Running with Demo 
